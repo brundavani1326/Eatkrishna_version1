@@ -36,7 +36,7 @@ export default function ProductsPage() {
         >
           <p style={{
             fontFamily: 'Poppins,sans-serif', fontSize: 11,
-            color: '#C1923F', letterSpacing: '0.3em',
+            color: '#2C1200', letterSpacing: '0.3em',
             textTransform: 'uppercase', marginBottom: 12, fontWeight: 600
           }}>
             Explore Our Range
@@ -47,7 +47,7 @@ export default function ProductsPage() {
             fontWeight: 900, color: '#333', marginBottom: 32,
             letterSpacing: '-0.02em'
           }}>
-            Our <span style={{ color: '#C1923F' }}>Products</span>
+            Our <span style={{ color: '#2C1200' }}>Products</span>
           </h1>
 
           {/* Search bar specifically as in screenshot */}

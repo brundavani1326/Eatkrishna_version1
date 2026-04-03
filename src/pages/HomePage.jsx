@@ -16,7 +16,7 @@ function Hero() {
   useEffect(() => { const t = setInterval(() => setIdx(i=>(i+1)%total), 5000); return ()=>clearInterval(t) }, [])
 
   return (
-    <section style={{ minHeight:'100vh', position:'relative', display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden' }}>
+    <section style={{ minHeight:'100vh', position:'relative', display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden', background: '#2C1200' }}>
       {/* BG slides */}
       <AnimatePresence mode="wait">
         <motion.div key={idx} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:1.2}}

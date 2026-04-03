@@ -39,11 +39,11 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
         style={{
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
-          background: scrolled ? 'rgba(255, 245, 225, 0.95)' : 'rgba(26, 0, 0, 0.4)',
+          background: '#FFF5E1',
           backdropFilter: 'blur(10px)',
-          boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.08)' : 'none',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
           transition: 'all 0.4s ease',
-          borderBottom: scrolled ? '1px solid rgba(200,150,12,0.1)' : 'none'
+          borderBottom: '1px solid rgba(200,150,12,0.15)'
         }}
       >
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 20px', height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -61,7 +61,7 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div style={{ display: 'flex', gap: 40, alignItems: 'center' }} className="hidden md:flex">
             {[['Home', '/'], ['Products', '/products']].map(([label, path]) => (
-              <Link key={path} to={path} style={{ textDecoration: 'none', position: 'relative', paddingBottom: 4, fontFamily: 'Poppins,sans-serif', fontSize: 14, fontWeight: isActive(path) ? 600 : 500, color: isActive(path) ? '#C8960C' : (scrolled ? '#333' : 'rgba(255,255,255,0.9)'), transition: 'all 0.3s' }}>
+              <Link key={path} to={path} style={{ textDecoration: 'none', position: 'relative', paddingBottom: 4, fontFamily: 'Poppins,sans-serif', fontSize: 14, fontWeight: isActive(path) ? 600 : 500, color: isActive(path) ? '#C8960C' : '#4A2D06', transition: 'all 0.3s' }}>
                 {label}
                 {isActive(path) && <motion.div layoutId="nav-ul" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2, background: '#C8960C', borderRadius: 1 }} />}
               </Link>
@@ -74,7 +74,7 @@ export default function Navbar() {
             <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
               onClick={() => navigate('/wishlist')}
               style={{ position: 'relative', background: 'none', border: 'none', cursor: 'pointer', padding: 8, borderRadius: 8, display: 'flex' }}>
-              <Heart size={20} color={wishlist?.length ? '#C8960C' : (scrolled ? '#666' : 'rgba(255,255,255,0.8)')} fill={wishlist?.length ? '#C8960C' : 'none'} />
+              <Heart size={20} color={wishlist?.length ? '#C8960C' : '#4A2D06'} fill={wishlist?.length ? '#C8960C' : 'none'} />
               {wishlist?.length > 0 && (
                 <span style={{ position: 'absolute', top: 2, right: 2, background: '#C8960C', color: '#fff', fontSize: 9, fontWeight: 700, width: 14, height: 14, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{wishlist.length}</span>
               )}
@@ -84,7 +84,7 @@ export default function Navbar() {
             <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(true)}
               style={{ position: 'relative', background: 'none', border: 'none', cursor: 'pointer', padding: 8, borderRadius: 8, display: 'flex' }}>
-              <ShoppingCart size={20} color={scrolled ? '#555' : 'rgba(255,255,255,0.8)'} />
+              <ShoppingCart size={20} color='#4A2D06' />
               {count > 0 && (
                 <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }}
                   style={{ position: 'absolute', top: 1, right: 1, background: '#C8960C', color: '#fff', fontSize: 10, fontWeight: 700, width: 17, height: 17, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Poppins,sans-serif' }}>
