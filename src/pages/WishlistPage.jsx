@@ -30,7 +30,7 @@ export default function WishlistPage() {
             <button className="btn-primary" onClick={() => navigate('/products')}>Browse Products</button>
           </motion.div>
         ) : (
-          <div className="responsive-grid responsive-grid-1 sm:responsive-grid-2 md:responsive-grid-3 lg:responsive-grid-4">
+          <div className="responsive-grid responsive-grid-1 responsive-grid-2 responsive-grid-3 responsive-grid-4">
             <AnimatePresence>
               {wishlist.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
             </AnimatePresence>

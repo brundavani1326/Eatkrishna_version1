@@ -48,15 +48,13 @@ body { font-family: 'Poppins', sans-serif; background: #FFF5E1; color: #1A0000; 
 .btn-primary {
   background: linear-gradient(135deg, #C8960C 0%, #A07808 100%); color: #fff; border: none;
   padding: 14px 34px; border-radius: 9px;
+}
 
 /* Responsive grid utilities */
 .responsive-grid {
   display: grid;
   gap: 20px;
-}
-
-.responsive-grid-1 {
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* Mobile default */
 }
 
 @media (min-width: 640px) {
@@ -78,6 +76,10 @@ body { font-family: 'Poppins', sans-serif; background: #FFF5E1; color: #1A0000; 
   .responsive-grid-4 {
     grid-template-columns: repeat(4, 1fr);
   }
+  .responsive-grid-checkout {
+    grid-template-columns: 1fr 320px;
+  }
+}
   .responsive-grid-checkout {
     grid-template-columns: 1fr 320px;
   }
