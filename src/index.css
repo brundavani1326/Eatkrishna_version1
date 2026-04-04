@@ -4,8 +4,11 @@
 @tailwind utilities;
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Poppins', sans-serif; background: #FFF5E1; color: #1A0000; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; width: 100%; max-width: 100%; overflow-x: hidden; }
+body { font-family: 'Poppins', sans-serif; background: #FFF5E1; color: #1A0000; overflow-x: hidden; -webkit-font-smoothing: antialiased; min-height: 100vh; width: 100%; max-width: 100%; }
+#root { width: 100%; max-width: 100%; overflow-x: hidden; }
+img, picture, svg, video, canvas { display: block; max-width: 100%; height: auto; }
+a, button, input, textarea, select { max-width: 100%; }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #FFF5E1; }

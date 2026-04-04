@@ -46,7 +46,7 @@ export default function Navbar() {
           borderBottom: '1px solid rgba(200,150,12,0.15)'
         }}
       >
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 clamp(16px, 4vw, 20px)', height: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 clamp(12px, 4vw, 16px)', minHeight: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: 8 }}>
           {/* Logo */}
           <Link to="/" style={{ textDecoration: 'none' }}>
             <motion.div whileHover={{ scale: 1.02 }} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -69,7 +69,7 @@ export default function Navbar() {
           </div>
 
           {/* Right icons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
             {/* Wishlist */}
             <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
               onClick={() => navigate('/wishlist')}
