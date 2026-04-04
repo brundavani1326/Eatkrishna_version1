@@ -5,7 +5,11 @@ export default {
     'grid-cols-[1fr_300px]',
     'grid-cols-[1fr_320px]',
     'md:grid-cols-[1fr_300px]',
-    'lg:grid-cols-[1fr_320px]'
+    'lg:grid-cols-[1fr_320px]',
+    'hidden',
+    'md:flex',
+    'md:hidden',
+    'flex'
   ],
   theme: {
     extend: {
