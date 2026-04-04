@@ -48,6 +48,40 @@ body { font-family: 'Poppins', sans-serif; background: #FFF5E1; color: #1A0000; 
 .btn-primary {
   background: linear-gradient(135deg, #C8960C 0%, #A07808 100%); color: #fff; border: none;
   padding: 14px 34px; border-radius: 9px;
+
+/* Responsive grid utilities */
+.responsive-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.responsive-grid-1 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .responsive-grid-cart {
+    grid-template-columns: 1fr 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .responsive-grid-checkout {
+    grid-template-columns: 1fr 320px;
+  }
+}
   font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
   cursor: pointer; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); letter-spacing: 0.05em;
   display: inline-flex; align-items: center; gap: 10px;

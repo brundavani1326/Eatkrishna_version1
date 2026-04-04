@@ -109,7 +109,7 @@ function FeaturedProducts() {
     <section id="featured-section" style={{padding:'clamp(48px, 8vw, 72px) clamp(16px, 4vw, 20px)',background:'#FFF5E1'}}>
       <div style={{maxWidth:1280,margin:'0 auto'}}>
         <SH label="Curated for you" title="Featured" gold="Products" sub="Handpicked delicacies just for you" />
-        <div className="products-grid-4" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))',gap:20}}>
+        <div className="responsive-grid responsive-grid-1 sm:responsive-grid-2 md:responsive-grid-3 lg:responsive-grid-4">
           {PRODUCTS.slice(0,8).map((p,i)=><ProductCard key={p.id} product={p} index={i}/>)}
         </div>
         <div style={{textAlign:'center',marginTop:40}}>
@@ -127,7 +127,7 @@ function Categories() {
     <section style={{padding:'clamp(48px, 8vw, 64px) clamp(16px, 4vw, 20px)',background:'#F5E6C8'}}>
       <div style={{maxWidth:1280,margin:'0 auto'}}>
         <SH label="Collections" title="Shop by" gold="Category" sub="Discover our exquisite range" />
-        <div className="cats-grid" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(250px, 1fr))',gap:20}}>
+        <div className="responsive-grid responsive-grid-1 md:responsive-grid-2 lg:responsive-grid-3">
           {Object.entries(CATEGORY_DATA).map(([id,cat],i)=>(
             <motion.div key={id} initial={{opacity:0,y:32}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*0.12}}
               whileHover={{y:-6}} onClick={()=>navigate(`/products?category=${id}`)}

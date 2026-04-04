@@ -2,20 +2,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft } from 'lucide-react'
 import { useCart } from '../context/CartContext'
-import { useState, useEffect } from 'react'
 
 export default function CartPage() {
   const { items, removeFromCart, updateQty, total } = useCart()
   const navigate = useNavigate()
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
   const shipping = total >= 500 ? 0 : 49
 
   return (
@@ -41,7 +31,7 @@ export default function CartPage() {
             </motion.button>
           </motion.div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 300px', gap: 32, alignItems: 'start' }}>
+          <div className="responsive-grid responsive-grid-1 md:responsive-grid-cart" style={{ alignItems: 'start' }}>
             <div>
               <AnimatePresence>
                 {items.map(item => (
