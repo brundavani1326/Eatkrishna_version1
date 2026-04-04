@@ -48,42 +48,6 @@ body { font-family: 'Poppins', sans-serif; background: #FFF5E1; color: #1A0000; 
 .btn-primary {
   background: linear-gradient(135deg, #C8960C 0%, #A07808 100%); color: #fff; border: none;
   padding: 14px 34px; border-radius: 9px;
-}
-
-/* Responsive grid utilities */
-.responsive-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr; /* Mobile default */
-}
-
-@media (min-width: 640px) {
-  .responsive-grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 768px) {
-  .responsive-grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .responsive-grid-cart {
-    grid-template-columns: 1fr 300px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .responsive-grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .responsive-grid-checkout {
-    grid-template-columns: 1fr 320px;
-  }
-}
-  .responsive-grid-checkout {
-    grid-template-columns: 1fr 320px;
-  }
-}
   font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
   cursor: pointer; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); letter-spacing: 0.05em;
   display: inline-flex; align-items: center; gap: 10px;
@@ -122,14 +86,35 @@ body { font-family: 'Poppins', sans-serif; background: #FFF5E1; color: #1A0000; 
 }
 .input-field:focus { border-color: #C8960C; box-shadow: 0 0 0 4px rgba(200, 150, 12, 0.1); background: #fff; }
 
-@media (max-width: 768px) {
-  .hero-title { font-size: 48px !important; }
-  .products-grid-4 { grid-template-columns: repeat(2,1fr) !important; }
-  .cats-grid { grid-template-columns: 1fr !important; }
+/* Responsive grid utilities */
+.responsive-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; /* Mobile default */
 }
-@media (max-width: 480px) {
-  .hero-title { font-size: 38px !important; }
-  .products-grid-4 { grid-template-columns: 1fr !important; }
+
+@media (min-width: 640px) {
+  .responsive-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .responsive-grid-cart {
+    grid-template-columns: 1fr 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .responsive-grid-checkout {
+    grid-template-columns: 1fr 320px;
+  }
 }
 
 
