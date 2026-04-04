@@ -90,17 +90,62 @@ body { font-family: 'Poppins', sans-serif; background: #FFF5E1; color: #1A0000; 
 .responsive-grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: 1fr; /* Mobile default */
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+}
+
+.responsive-grid-2 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+}
+
+.responsive-grid-3 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+}
+
+.responsive-grid-4 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+}
+
+.responsive-grid-1 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+}
+
+.responsive-grid-cart {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
+}
+
+.responsive-grid-checkout {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; /* Mobile: 1 column */
 }
 
 @media (min-width: 640px) {
   .responsive-grid-2 {
     grid-template-columns: repeat(2, 1fr);
   }
+  .responsive-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .responsive-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 768px) {
   .responsive-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .responsive-grid-4 {
     grid-template-columns: repeat(3, 1fr);
   }
   .responsive-grid-cart {

@@ -35,7 +35,7 @@ export default function CheckoutPage() {
         </button>
         <h1 style={{ fontFamily: '"Playfair Display",serif', fontSize: 36, fontWeight: 700, color: '#333', marginBottom: 32 }}>Checkout</h1>
         <form onSubmit={handleOrder}>
-          <div className="responsive-grid responsive-grid-1 responsive-grid-checkout" style={{ alignItems: 'start' }}>
+          <div className="responsive-grid-checkout" style={{ alignItems: 'start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               {/* Delivery */}
               <div style={{ background: '#fff', borderRadius: 16, padding: '24px', border: '1px solid rgba(200,150,12,0.12)' }}>

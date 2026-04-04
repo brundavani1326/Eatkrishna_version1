@@ -31,7 +31,7 @@ export default function CartPage() {
             </motion.button>
           </motion.div>
         ) : (
-          <div className="responsive-grid responsive-grid-1 responsive-grid-cart" style={{ alignItems: 'start' }}>
+          <div className="responsive-grid-cart" style={{ alignItems: 'start' }}>
             <div>
               <AnimatePresence>
                 {items.map(item => (
