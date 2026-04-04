@@ -59,7 +59,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div style={{ display: 'none' }} className="md:flex md:gap-10">
+          <div style={{ gap: 40, alignItems: 'center' }} className="hidden md:flex">
             {[['Home', '/'], ['Products', '/products']].map(([label, path]) => (
               <Link key={path} to={path} style={{ textDecoration: 'none', position: 'relative', paddingBottom: 4, fontFamily: 'Poppins,sans-serif', fontSize: 14, fontWeight: isActive(path) ? 600 : 500, color: isActive(path) ? '#C8960C' : '#4A2D06', transition: 'all 0.3s' }}>
                 {label}
@@ -97,8 +97,8 @@ export default function Navbar() {
             {!user && (
               <motion.button whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
                 onClick={() => navigate('/login')}
-                style={{ display: 'none', padding: '10px 28px', borderRadius: 10, background: '#C8960C', color: '#1A0000', border: 'none', cursor: 'pointer', fontFamily: 'Poppins,sans-serif', fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
-                className="md:flex"
+                style={{ padding: '10px 28px', borderRadius: 10, background: '#C8960C', color: '#1A0000', border: 'none', cursor: 'pointer', fontFamily: 'Poppins,sans-serif', fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                className="hidden md:flex"
               >
                 Login
               </motion.button>
@@ -107,8 +107,8 @@ export default function Navbar() {
             {/* Mobile toggle */}
             <motion.button whileTap={{ scale: 0.9 }}
               onClick={() => setMobileOpen(!mobileOpen)}
-              style={{ display: 'flex', background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}
-              className="md:hidden"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}
+              className="flex md:hidden"
             >
               {mobileOpen ? <X size={22} color="#555" /> : <Menu size={22} color="#555" />}
             </motion.button>

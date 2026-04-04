@@ -9,7 +9,9 @@ export default {
     'hidden',
     'md:flex',
     'md:hidden',
-    'flex'
+    'flex',
+    'md:flex',
+    'md:gap-10'
   ],
   theme: {
     extend: {
