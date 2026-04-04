@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, MapPin, CreditCard, Phone, Mail, User } from 'lucide-react'
 import { useCart } from '../context/CartContext'
+import { useEffect } from 'react'
 import toast from 'react-hot-toast'
 
 export default function CheckoutPage() {
@@ -11,6 +12,15 @@ export default function CheckoutPage() {
   const [loading, setLoading] = useState(false)
   const [payment, setPayment] = useState('cod')
   const [form, setForm] = useState({ name: '', email: '', phone: '', address: '', city: '', pincode: '' })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const shipping = total >= 500 ? 0 : 49
   const onChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
@@ -35,7 +45,7 @@ export default function CheckoutPage() {
         </button>
         <h1 style={{ fontFamily: '"Playfair Display",serif', fontSize: 36, fontWeight: 700, color: '#333', marginBottom: 32 }}>Checkout</h1>
         <form onSubmit={handleOrder}>
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8" style={{ alignItems: 'start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 320px', gap: 32, alignItems: 'start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               {/* Delivery */}
               <div style={{ background: '#fff', borderRadius: 16, padding: '24px', border: '1px solid rgba(200,150,12,0.12)' }}>
