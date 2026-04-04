@@ -10,7 +10,7 @@ export default function CartPage() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#FFF5E1', paddingTop: 80 }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '36px 24px 64px' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '36px clamp(16px, 4vw, 24px) 64px' }}>
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <button onClick={() => navigate(-1)} style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', cursor: 'pointer', color: '#888', fontFamily: 'Poppins,sans-serif', fontSize: 14, marginBottom: 20 }}>
             <ArrowLeft size={15} /> Continue Shopping
@@ -31,7 +31,7 @@ export default function CartPage() {
             </motion.button>
           </motion.div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: 32, alignItems: 'start' }}>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-8" style={{ alignItems: 'start' }}>
             <div>
               <AnimatePresence>
                 {items.map(item => (

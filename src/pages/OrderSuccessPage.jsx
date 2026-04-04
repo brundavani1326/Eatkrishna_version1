@@ -7,7 +7,7 @@ export default function OrderSuccessPage() {
   const orderNum = '#EK' + Date.now().toString().slice(-6)
 
   return (
-    <div style={{ minHeight: '100vh', background: '#FFF5E1', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '100px 24px 40px' }}>
+    <div style={{ minHeight: '100vh', background: '#FFF5E1', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '100px clamp(16px, 4vw, 24px) 40px' }}>
       <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: 'spring', stiffness: 150, damping: 20 }}
         style={{ background: '#fff', borderRadius: 24, padding: '48px 40px', maxWidth: 440, width: '100%', textAlign: 'center', border: '1px solid rgba(200,150,12,0.15)', boxShadow: '0 20px 60px rgba(200,150,12,0.1)' }}>
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}

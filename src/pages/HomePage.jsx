@@ -37,7 +37,7 @@ function Hero() {
       ))}
 
       {/* Content */}
-      <div style={{ position:'relative', zIndex:2, textAlign:'center', padding:'0 24px', maxWidth:900, margin:'0 auto', paddingTop:40 }}>
+      <div style={{ position:'relative', zIndex:2, textAlign:'center', padding:'0 clamp(16px, 4vw, 24px)', maxWidth:900, margin:'0 auto', paddingTop:40 }}>
         <AnimatePresence mode="wait">
           <motion.div key={idx} initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-20}} transition={{duration:0.6}}>
             <h1 className="hero-title" style={{ 
@@ -106,10 +106,10 @@ function SH({label,title,gold,sub}) {
 function FeaturedProducts() {
   const navigate = useNavigate()
   return (
-    <section id="featured-section" style={{padding:'72px 20px',background:'#FFF5E1'}}>
+    <section id="featured-section" style={{padding:'clamp(48px, 8vw, 72px) clamp(16px, 4vw, 20px)',background:'#FFF5E1'}}>
       <div style={{maxWidth:1280,margin:'0 auto'}}>
         <SH label="Curated for you" title="Featured" gold="Products" sub="Handpicked delicacies just for you" />
-        <div className="products-grid-4" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:20}}>
+        <div className="products-grid-4" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))',gap:20}}>
           {PRODUCTS.slice(0,8).map((p,i)=><ProductCard key={p.id} product={p} index={i}/>)}
         </div>
         <div style={{textAlign:'center',marginTop:40}}>
@@ -124,10 +124,10 @@ function FeaturedProducts() {
 function Categories() {
   const navigate = useNavigate()
   return (
-    <section style={{padding:'64px 20px',background:'#F5E6C8'}}>
+    <section style={{padding:'clamp(48px, 8vw, 64px) clamp(16px, 4vw, 20px)',background:'#F5E6C8'}}>
       <div style={{maxWidth:1280,margin:'0 auto'}}>
         <SH label="Collections" title="Shop by" gold="Category" sub="Discover our exquisite range" />
-        <div className="cats-grid" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20}}>
+        <div className="cats-grid" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit, minmax(250px, 1fr))',gap:20}}>
           {Object.entries(CATEGORY_DATA).map(([id,cat],i)=>(
             <motion.div key={id} initial={{opacity:0,y:32}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*0.12}}
               whileHover={{y:-6}} onClick={()=>navigate(`/products?category=${id}`)}
@@ -151,14 +151,14 @@ function Categories() {
 function FestivalBanner() {
   const navigate = useNavigate()
   return (
-    <section style={{padding:'0 20px 64px',background:'#FFF5E1'}}>
+    <section style={{padding:'0 clamp(16px, 4vw, 20px) clamp(48px, 8vw, 64px)',background:'#FFF5E1'}}>
       <div style={{maxWidth:1280,margin:'0 auto'}}>
         <motion.div initial={{opacity:0,scale:0.97}} whileInView={{opacity:1,scale:1}} viewport={{once:true}}
           style={{borderRadius:20,overflow:'hidden',position:'relative',minHeight:240}}>
           <img src={festiveBanner} alt="Festival"
             style={{width:'100%',height:'100%',objectFit:'cover',position:'absolute',inset:0}}/>
           <div style={{position:'absolute',inset:0,background:'linear-gradient(135deg,rgba(44,18,0,0.8) 0%,rgba(20,10,0,0.6) 100%)'}}/>
-          <div style={{position:'relative',zIndex:2,padding:'56px 48px',textAlign:'center'}}>
+          <div style={{position:'relative',zIndex:2,padding:'clamp(32px, 8vw, 56px) clamp(24px, 6vw, 48px)',textAlign:'center'}}>
             <p style={{fontFamily:'Poppins,sans-serif',fontSize:11,color:'#F0D060',letterSpacing:'0.3em',textTransform:'uppercase',marginBottom:10}}>✦ Limited Edition ✦</p>
             <h2 style={{fontFamily:'"Playfair Display",serif',fontWeight:900,color:'#fff',fontSize:'clamp(26px,5vw,42px)',marginBottom:12}}>
               Festival Special
@@ -185,7 +185,7 @@ function WhyUs() {
     {icon:Truck,title:'Pan-India Delivery',desc:'Carefully packed and delivered fresh to your doorstep across India.'},
   ]
   return (
-    <section style={{padding:'64px 20px',background:'#F5E6C8'}}>
+    <section style={{padding:'clamp(48px, 8vw, 64px) clamp(16px, 4vw, 20px)',background:'#F5E6C8'}}>
       <div style={{maxWidth:1280,margin:'0 auto'}}>
         <SH label="Our Promise" title="Why Choose" gold="Us"/>
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',gap:20}}>

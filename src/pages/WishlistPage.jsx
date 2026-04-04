@@ -10,7 +10,7 @@ export default function WishlistPage() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#FFF5E1', paddingTop: 60 }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '32px 20px 64px' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '32px clamp(16px, 4vw, 20px) 64px' }}>
         <button onClick={() => navigate(-1)} style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', cursor: 'pointer', color: '#888', fontFamily: 'Poppins,sans-serif', fontSize: 14, marginBottom: 24 }}>
           <ArrowLeft size={16} /> Back
         </button>
@@ -30,7 +30,7 @@ export default function WishlistPage() {
             <button className="btn-primary" onClick={() => navigate('/products')}>Browse Products</button>
           </motion.div>
         ) : (
-          <div className="products-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 20 }}>
+          <div className="products-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20 }}>
             <AnimatePresence>
               {wishlist.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
             </AnimatePresence>

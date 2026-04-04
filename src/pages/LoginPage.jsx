@@ -54,7 +54,7 @@ export default function LoginPage() {
       minHeight: '100vh',
       background: 'linear-gradient(135deg, #FFF5E1 0%, #F5E6C8 50%, #FFF5E1 100%)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      padding: '100px 24px 40px',
+      padding: '100px clamp(16px, 4vw, 24px) 40px',
     }}>
       {/* Decorative bg blobs */}
       <div style={{ position: 'fixed', top: '15%', left: '10%', width: 260, height: 260, borderRadius: '50%', background: 'rgba(200,150,12,0.06)', pointerEvents: 'none' }} />

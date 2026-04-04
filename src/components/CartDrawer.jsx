@@ -20,7 +20,7 @@ export default function CartDrawer() {
             initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
             style={{
-              position: 'fixed', top: 0, right: 0, bottom: 0, width: 400,
+              position: 'fixed', top: 0, right: 0, bottom: 0, width: 'min(400px, 100vw)',
               maxWidth: '100vw', background: '#FFF5E1', zIndex: 70,
               display: 'flex', flexDirection: 'column',
               boxShadow: '-4px 0 30px rgba(0,0,0,0.12)',

@@ -29,13 +29,13 @@ export default function CheckoutPage() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#FFF5E1', paddingTop: 80 }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 24px 64px' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px clamp(16px, 4vw, 24px) 64px' }}>
         <button onClick={() => navigate(-1)} style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', cursor: 'pointer', color: '#888', fontFamily: 'Poppins,sans-serif', fontSize: 14, marginBottom: 24 }}>
           <ArrowLeft size={15} /> Back to Cart
         </button>
         <h1 style={{ fontFamily: '"Playfair Display",serif', fontSize: 36, fontWeight: 700, color: '#333', marginBottom: 32 }}>Checkout</h1>
         <form onSubmit={handleOrder}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 32, alignItems: 'start' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8" style={{ alignItems: 'start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               {/* Delivery */}
               <div style={{ background: '#fff', borderRadius: 16, padding: '24px', border: '1px solid rgba(200,150,12,0.12)' }}>

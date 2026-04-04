@@ -28,7 +28,7 @@ export default function ProductsPage() {
   return (
     <div style={{ minHeight: '100vh', background: '#FFF5E1', paddingTop: 80 }}>
       {/* Search & Header Section — matching screenshot exactly */}
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '60px 24px 40px' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(40px, 8vw, 60px) clamp(16px, 4vw, 24px) clamp(20px, 4vw, 40px)' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
