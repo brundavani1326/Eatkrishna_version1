@@ -31,7 +31,7 @@ export default function CartPage() {
             </motion.button>
           </motion.div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth >= 768 ? '1fr 300px' : '1fr', gap: window.innerWidth >= 768 ? 32 : 32, alignItems: 'start' }}>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-8 md:gap-8" style={{ alignItems: 'start' }}>
             <div>
               <AnimatePresence>
                 {items.map(item => (
