@@ -46,13 +46,13 @@ export default function Navbar() {
           borderBottom: '1px solid rgba(200,150,12,0.15)'
         }}
       >
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 clamp(12px, 4vw, 16px)', minHeight: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: 8 }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 clamp(12px, 4vw, 16px)', minHeight: 70, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: 8, gap: 16 }}>
           {/* Logo */}
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <motion.div whileHover={{ scale: 1.02 }} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <Link to="/" style={{ textDecoration: 'none', flex: '1 1 0', minWidth: 0 }}>
+            <motion.div whileHover={{ scale: 1.02 }} style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
               <span style={{ fontSize: 32 }}>🪈</span>
-              <div>
-                <div style={{ fontFamily: '"Playfair Display",serif', fontWeight: 700, fontSize: 20, color: '#C8960C', lineHeight: 1, letterSpacing: '0.05em' }}>EAT KRISHNA</div>
+              <div style={{ minWidth: 0 }}>
+                <div style={{ fontFamily: '"Playfair Display",serif', fontWeight: 700, fontSize: 20, color: '#C8960C', lineHeight: 1, letterSpacing: '0.05em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>EAT KRISHNA</div>
                 <div style={{ fontFamily: 'Poppins,sans-serif', fontSize: 10, color: scrolled ? '#A07808' : '#C8960C', opacity: 0.8, letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>Handcrafted Devotion</div>
               </div>
             </motion.div>
@@ -69,7 +69,7 @@ export default function Navbar() {
           </div>
 
           {/* Right icons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0, flexWrap: 'nowrap' }}>
             {/* Wishlist */}
             <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
               onClick={() => navigate('/wishlist')}

@@ -42,7 +42,7 @@ export default function CheckoutPage() {
                 <h2 style={{ fontFamily: '"Playfair Display",serif', fontSize: 20, fontWeight: 700, color: '#333', marginBottom: 18, display: 'flex', alignItems: 'center', gap: 8 }}>
                   <MapPin size={18} color="#C8960C" /> Delivery Details
                 </h2>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
                   <input name="name" value={form.name} onChange={onChange} placeholder="Full name" style={inp} />
                   <input name="phone" value={form.phone} onChange={onChange} placeholder="Phone number" style={inp} />
                   <input name="email" type="email" value={form.email} onChange={onChange} placeholder="Email" style={{ ...inp, gridColumn: '1/-1' }} />
@@ -70,7 +70,7 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            <div style={{ background: '#fff', borderRadius: 16, padding: '24px', border: '1px solid rgba(200,150,12,0.12)', position: 'sticky', top: 96 }}>
+            <div className="checkout-summary-card" style={{ background: '#fff', borderRadius: 16, padding: '24px', border: '1px solid rgba(200,150,12,0.12)' }}>
               <h2 style={{ fontFamily: '"Playfair Display",serif', fontSize: 20, fontWeight: 700, color: '#333', marginBottom: 18 }}>Order Summary</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16, maxHeight: 220, overflowY: 'auto' }}>
                 {items.map(item => (

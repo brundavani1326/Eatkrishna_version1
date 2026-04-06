@@ -38,24 +38,22 @@ function Hero() {
 
       {/* Content */}
       <div style={{ position:'relative', zIndex:2, textAlign:'center', padding:'0 clamp(16px, 4vw, 24px)', maxWidth:900, margin:'0 auto', paddingTop:40 }}>
-        <AnimatePresence mode="wait">
-          <motion.div key={idx} initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-20}} transition={{duration:0.6}}>
-            <h1 className="hero-title" style={{ 
-              fontFamily:'"Playfair Display",serif', fontWeight:900, fontSize:'clamp(56px,12vw,100px)', color:'#C8960C', 
-              lineHeight:1.1, letterSpacing:'-0.01em', marginBottom:24,
-              textShadow: '0 4px 15px rgba(0,0,0,0.4)'
-            }}>
-              EatKrishna
-            </h1>
-            <p style={{ 
-              fontFamily:'Poppins,sans-serif', fontSize:'clamp(15px,2.5vw,18px)', color:'rgba(255,245,225,0.9)', 
-              lineHeight:1.6, maxWidth:650, margin:'0 auto 48px', letterSpacing: '0.02em',
-              textShadow: '0 2px 8px rgba(0,0,0,0.5)'
-            }}>
-              Experience the authentic flavors of India with our premium sweets, ladoos, and dry fruits
-            </p>
-          </motion.div>
-        </AnimatePresence>
+        <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6}}>
+          <h1 className="hero-title" style={{ 
+            fontFamily:'"Playfair Display",serif', fontWeight:900, fontSize:'clamp(56px,12vw,100px)', color:'#C8960C', 
+            lineHeight:1.1, letterSpacing:'-0.01em', marginBottom:24,
+            textShadow: '0 4px 15px rgba(0,0,0,0.4)'
+          }}>
+            EatKrishna
+          </h1>
+          <p style={{ 
+            fontFamily:'Poppins,sans-serif', fontSize:'clamp(15px,2.5vw,18px)', color:'rgba(255,245,225,0.9)', 
+            lineHeight:1.6, maxWidth:650, margin:'0 auto 48px', letterSpacing: '0.02em',
+            textShadow: '0 2px 8px rgba(0,0,0,0.5)'
+          }}>
+            Experience the authentic flavors of India with our premium sweets, ladoos, and dry fruits
+          </p>
+        </motion.div>
 
         <motion.div initial={{opacity:0,y:14}} animate={{opacity:1,y:0}} transition={{delay:0.8}} style={{display:'flex',gap:16,justifyContent:'center',flexWrap:'wrap'}}>
           <button className="btn-primary" onClick={()=>navigate('/products')} 
