@@ -68,21 +68,29 @@ export default function ProductCard({ product, index = 0 }) {
         </div>
 
         {/* Price row */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div>
-            <span style={{ fontFamily: '"Playfair Display",serif', fontSize: 18, fontWeight: 700, color: '#C8960C' }}>₹{product.price}</span>
-            {product.originalPrice && <span style={{ fontSize: 12, color: '#ccc', textDecoration: 'line-through', marginLeft: 6, fontFamily: 'Poppins,sans-serif' }}>₹{product.originalPrice}</span>}
-          </div>
-          {product.originalPrice && (
-            <span style={{ fontSize: 11, background: '#fef3e2', color: '#8B6800', padding: '2px 7px', borderRadius: 12, fontWeight: 600, fontFamily: 'Poppins,sans-serif' }}>
-              {Math.round((1 - product.price / product.originalPrice) * 100)}% off
-            </span>
-          )}
-        </div>
-      </div>
+<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+  <div>
+    <span style={{ fontFamily: '"Playfair Display",serif', fontSize: 18, fontWeight: 700, color: '#C8960C' }}>
+      ₹{product.price}
+    </span>
+    {product.originalPrice && (
+      <span style={{ fontSize: 12, color: '#ccc', textDecoration: 'line-through', marginLeft: 6, fontFamily: 'Poppins,sans-serif' }}>
+        ₹{product.originalPrice}
+      </span>
+    )}
+  </div>
 
-      {/* Add to cart */}
-      <div style={{ padding: '0 14px 14px' }}>
+  {product.originalPrice && (
+    <span style={{ fontSize: 11, background: '#fef3e2', color: '#8B6800', padding: '2px 7px', borderRadius: 12, fontWeight: 600, fontFamily: 'Poppins,sans-serif' }}>
+      {Math.round((1 - product.price / product.originalPrice) * 100)}% off
+    </span>
+  )}
+</div>
+
+</div> {/* ✅ THIS WAS MISSING */}
+
+{/* Add to cart */}
+<div style={{ padding: '0 14px 14px' }}>
         <motion.button
           whileHover={{ scale: 1.02, filter: 'brightness(1.1)' }} whileTap={{ scale: 0.97 }}
           onClick={e => { e.stopPropagation(); addToCart(product) }}

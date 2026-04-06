@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight, Star, ShieldCheck, Truck, Leaf, Award, ChevronLeft, ChevronRight } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
+import CustomizeLaddu from '../components/CustomizeLaddu'
 import { PRODUCTS, CATEGORY_DATA, TESTIMONIALS, HERO_SLIDES, festiveBanner, familyMoment, shopInterior } from '../utils/data'
 
 /* ── Particles ── */
@@ -266,12 +267,38 @@ function Newsletter() {
   )
 }
 
+/* ── Customize Laddu Section ── */
+function CustomizeLadduSection({ onOpen }) {
+  return (
+    <section style={{ padding: 'clamp(48px, 8vw, 72px) clamp(16px, 4vw, 20px)', background: '#FFF5E1' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          style={{ background: 'linear-gradient(135deg, rgba(200,150,12,0.08) 0%, rgba(224,93,4,0.06) 100%)', borderRadius: 24, padding: 'clamp(40px, 8vw, 60px)', textAlign: 'center', border: '2px solid rgba(200,150,12,0.2)' }}>
+          <div style={{ fontSize: 48, marginBottom: 20 }}>🎨</div>
+          <h2 style={{ fontFamily: '"Playfair Display",serif', fontSize: 'clamp(28px,4.5vw,42px)', fontWeight: 900, color: '#1A0000', marginBottom: 12, lineHeight: 1.2 }}>
+            Customize Your <span style={{ color: '#C8960C' }}>Laddu</span>
+          </h2>
+          <p style={{ fontFamily: 'Poppins,sans-serif', fontSize: 'clamp(14px, 2vw, 16px)', color: '#666', maxWidth: 550, margin: '0 auto 28px', lineHeight: 1.6 }}>
+            Create your perfect laddu by choosing your favorite ingredients, variety type, and size. Handcrafted just for you with love and tradition.
+          </p>
+          <button onClick={onOpen} className="btn-primary" style={{ padding: '14px 40px', fontSize: 15, fontWeight: 600 }}>
+            Start Customizing →
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
 export default function HomePage() {
+  const [customizeLadduOpen, setCustomizeLadduOpen] = useState(false)
+  
   return (
     <div>
       <Hero/>
       <FeaturedProducts/>
       <Categories/>
+      <CustomizeLadduSection onOpen={() => setCustomizeLadduOpen(true)} />
       <section style={{padding:'64px 20px',background:'#FFF5E1'}}>
         <div style={{maxWidth:1280,margin:'0 auto'}}>
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:40,alignItems:'center'}}>
@@ -318,6 +345,9 @@ export default function HomePage() {
       <WhyUs/>
       <Testimonials/>
       <Newsletter/>
+      <AnimatePresence>
+        <CustomizeLaddu isOpen={customizeLadduOpen} onClose={() => setCustomizeLadduOpen(false)} />
+      </AnimatePresence>
     </div>
   )
 }
