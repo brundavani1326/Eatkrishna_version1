@@ -32,11 +32,14 @@ a, button, input, textarea, select { max-width: 100%; }
   animation: floatUp linear infinite;
   pointer-events: none;
 }
-@keyframes floatUp {
-  0% { transform: translateY(500px) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.9; }
-  90% { opacity: 0.4; }
-  100% { transform: translateY(-30px) rotate(720deg); opacity: 0; }
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.modal-open .particle {
+  animation-play-state: paused;
 }
 
 @keyframes float { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-10px)} }

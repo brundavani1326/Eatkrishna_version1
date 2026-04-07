@@ -10,11 +10,15 @@ import { PRODUCTS, CATEGORY_DATA, TESTIMONIALS, HERO_SLIDES, festiveBanner, fami
 const PARTICLES = Array.from({length:18},(_,i)=>({id:i,size:Math.random()*7+3,left:Math.random()*100,dur:Math.random()*8+5,delay:Math.random()*6}))
 
 /* ── Hero ── */
-function Hero() {
+function Hero({ customizeModalOpen }) {
   const navigate = useNavigate()
   const [idx, setIdx] = useState(0)
   const total = HERO_SLIDES.length
-  useEffect(() => { const t = setInterval(() => setIdx(i=>(i+1)%total), 5000); return ()=>clearInterval(t) }, [])
+  useEffect(() => {
+    if (customizeModalOpen) return
+    const t = setInterval(() => setIdx(i=>(i+1)%total), 5000)
+    return ()=>clearInterval(t)
+  }, [customizeModalOpen])
 
   return (
     <section style={{ minHeight:'100vh', position:'relative', display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden', background: '#2C1200' }}>
@@ -270,19 +274,51 @@ function Newsletter() {
 /* ── Customize Laddu Section ── */
 function CustomizeLadduSection({ onOpen }) {
   return (
-    <section style={{ padding: 'clamp(48px, 8vw, 72px) clamp(16px, 4vw, 20px)', background: '#FFF5E1' }}>
+    <section style={{ padding: 'clamp(48px, 8vw, 72px) clamp(16px, 4vw, 20px)', background: 'radial-gradient(circle at top, rgba(255, 248, 228, 0.95), rgba(255, 242, 215, 0.9) 38%, rgba(245, 230, 200, 1) 100%)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          style={{ background: 'linear-gradient(135deg, rgba(200,150,12,0.08) 0%, rgba(224,93,4,0.06) 100%)', borderRadius: 24, padding: 'clamp(40px, 8vw, 60px)', textAlign: 'center', border: '2px solid rgba(200,150,12,0.2)' }}>
-          <div style={{ fontSize: 48, marginBottom: 20 }}>🎨</div>
-          <h2 style={{ fontFamily: '"Playfair Display",serif', fontSize: 'clamp(28px,4.5vw,42px)', fontWeight: 900, color: '#1A0000', marginBottom: 12, lineHeight: 1.2 }}>
-            Customize Your <span style={{ color: '#C8960C' }}>Laddu</span>
+          style={{ background: 'linear-gradient(180deg, #FFF5E1 0%, #F6E1BA 100%)', borderRadius: 24, padding: 'clamp(40px, 8vw, 60px)', textAlign: 'center', border: '1px solid rgba(200,150,12,0.18)', boxShadow: '0 28px 60px rgba(44,18,0,0.12)' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 10, margin: '0 auto 24px' }}>
+            {['#C8960C', '#A07808', '#F0D060', '#4A2B09'].map((color, index) => (
+              <span key={index} style={{ width: 18, height: 18, borderRadius: '50%', background: color, boxShadow: '0 10px 22px rgba(0,0,0,0.12)' }} />
+            ))}
+          </div>
+          <h2 style={{
+            fontFamily: 'Poppins, sans-serif',
+            fontSize: 'clamp(38px,5vw,58px)',
+            fontWeight: 800,
+            marginBottom: 14,
+            lineHeight: 1.02,
+            letterSpacing: '-0.02em',
+            backgroundImage: 'linear-gradient(90deg, #c7950c 0%, #a07808 25%, #efcf60 50%, #4a2b09 75%, #c7950c 100%)',
+            backgroundSize: '200% 100%',
+            backgroundPosition: '0% 50%',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            color: 'transparent',
+            textShadow: '0 8px 25px rgba(0,0,0,0.12)',
+            animation: 'gradientShift 4s ease-in-out infinite'
+          }}>
+            Customize Your <span style={{ fontWeight: 900 }}>Laddu</span>
           </h2>
           <p style={{ fontFamily: 'Poppins,sans-serif', fontSize: 'clamp(14px, 2vw, 16px)', color: '#666', maxWidth: 550, margin: '0 auto 28px', lineHeight: 1.6 }}>
             Create your perfect laddu by choosing your favorite ingredients, variety type, and size. Handcrafted just for you with love and tradition.
           </p>
           <button onClick={onOpen} className="btn-primary" style={{ padding: '14px 40px', fontSize: 15, fontWeight: 600 }}>
-            Start Customizing →
+            <span style={{
+              display: 'inline-block',
+              whiteSpace: 'nowrap',
+              backgroundImage: 'linear-gradient(90deg, #F9E7B7 0%, #C8960C 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              color: 'transparent',
+              backgroundSize: '200% 100%',
+              backgroundPosition: '0 0'
+            }}>
+              Start Customizing →
+            </span>
           </button>
         </motion.div>
       </div>
@@ -294,11 +330,11 @@ export default function HomePage() {
   const [customizeLadduOpen, setCustomizeLadduOpen] = useState(false)
   
   return (
-    <div>
-      <Hero/>
+    <div className={customizeLadduOpen ? 'modal-open' : ''}>
+      <Hero customizeModalOpen={customizeLadduOpen} />
+      <CustomizeLadduSection onOpen={() => setCustomizeLadduOpen(true)} />
       <FeaturedProducts/>
       <Categories/>
-      <CustomizeLadduSection onOpen={() => setCustomizeLadduOpen(true)} />
       <section style={{padding:'64px 20px',background:'#FFF5E1'}}>
         <div style={{maxWidth:1280,margin:'0 auto'}}>
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(320px,1fr))',gap:40,alignItems:'center'}}>

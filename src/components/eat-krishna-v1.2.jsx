@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '../context/CartContext'
 import toast from 'react-hot-toast'
@@ -30,19 +30,6 @@ export default function CustomizeLaddu({ isOpen, onClose }) {
   const [selectedSize, setSelectedSize] = useState(null)
   const [quantity, setQuantity] = useState(1)
   const { addToCart } = useCart()
-
-  useEffect(() => {
-    if (!isOpen) return
-    const originalBodyOverflow = document.body.style.overflow
-    const originalHtmlOverflow = document.documentElement.style.overflow
-    document.body.style.overflow = 'hidden'
-    document.documentElement.style.overflow = 'hidden'
-
-    return () => {
-      document.body.style.overflow = originalBodyOverflow
-      document.documentElement.style.overflow = originalHtmlOverflow
-    }
-  }, [isOpen])
 
   const handleIngredientToggle = (ingredient) => {
     if (selectedIngredients.includes(ingredient)) {
@@ -102,9 +89,9 @@ export default function CustomizeLaddu({ isOpen, onClose }) {
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      style={{ position: 'fixed', inset: 0, background: 'rgba(16, 10, 2, 0.72)', zIndex: 998, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px' }}>
+      style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 998, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px' }}>
       <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
-        style={{ background: 'linear-gradient(180deg, #FFF9F0 0%, #FFF0D6 100%)', borderRadius: 28, maxWidth: 700, width: '100%', maxHeight: '90vh', overflowY: 'auto', padding: '40px 32px', boxShadow: '0 30px 90px rgba(0,0,0,0.22)', border: '1px solid rgba(200,150,12,0.22)' }}>
+        style={{ background: '#fff', borderRadius: 20, maxWidth: 700, width: '100%', maxHeight: '90vh', overflowY: 'auto', padding: '40px 32px' }}>
 
         {/* Header with close button */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32 }}>
@@ -122,7 +109,7 @@ export default function CustomizeLaddu({ isOpen, onClose }) {
             <div key={s} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <div style={{
                 width: 40, height: 40, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: s <= step ? '#ab8009' : '#dddddd', color: s <= step ? '#fff' : '#999',
+                background: s <= step ? '#E85D04' : '#ddd', color: s <= step ? '#fff' : '#999',
                 fontWeight: 700, fontSize: 16
               }}>
                 {s}
@@ -154,7 +141,7 @@ export default function CustomizeLaddu({ isOpen, onClose }) {
                     transition: 'all 0.2s'
                   }}>
                     <input type="checkbox" checked={selectedIngredients.includes(ing)} onChange={() => handleIngredientToggle(ing)}
-                      style={{ width: 18, height: 18, cursor: 'pointer', accentColor: '#1A0000' }} />
+                      style={{ width: 18, height: 18, cursor: 'pointer' }} />
                     <span style={{ fontFamily: 'Poppins,sans-serif', fontSize: 14, color: '#333' }}>{ing}</span>
                   </label>
                 ))}
@@ -175,7 +162,7 @@ export default function CustomizeLaddu({ isOpen, onClose }) {
                 {VARIETY_TYPES.map((v, idx) => (
                   <label key={idx} style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px',
-                    border: selectedVariety === idx ? '2px solid #ab8c00' : '1.5px solid rgba(200,150,12,0.15)',
+                    border: selectedVariety === idx ? '2px solid #C8960C' : '1.5px solid rgba(200,150,12,0.15)',
                     borderRadius: 12, cursor: 'pointer', background: selectedVariety === idx ? 'rgba(200,150,12,0.04)' : '#fff',
                     transition: 'all 0.2s'
                   }}>
@@ -206,7 +193,7 @@ export default function CustomizeLaddu({ isOpen, onClose }) {
                 {SIZES.map((s, idx) => (
                   <label key={idx} style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px',
-                    border: selectedSize === idx ? '2px solid #ab8c00' : '1.5px solid rgba(200,150,12,0.15)',
+                    border: selectedSize === idx ? '2px solid #C8960C' : '1.5px solid rgba(200,150,12,0.15)',
                     borderRadius: 12, cursor: 'pointer', background: selectedSize === idx ? 'rgba(200,150,12,0.04)' : '#fff',
                     transition: 'all 0.2s'
                   }}>
@@ -321,7 +308,7 @@ export default function CustomizeLaddu({ isOpen, onClose }) {
           )}
           {step < 4 ? (
             <button onClick={() => canProceed() && setStep(step + 1)} disabled={!canProceed()} style={{
-              padding: '12px 32px', background: canProceed() ? '#ab8009' : '#ddd', color: '#fff',
+              padding: '12px 32px', background: canProceed() ? '#E85D04' : '#ddd', color: '#fff',
               border: 'none', borderRadius: 10, cursor: canProceed() ? 'pointer' : 'not-allowed',
               fontFamily: 'Poppins,sans-serif', fontSize: 14, fontWeight: 600
             }}>
@@ -336,7 +323,7 @@ export default function CustomizeLaddu({ isOpen, onClose }) {
                 Close
               </button>
               <button onClick={handleAddToCart} style={{
-                padding: '12px 32px', background: '#ab8009', color: '#fff',
+                padding: '12px 32px', background: '#E85D04', color: '#fff',
                 border: 'none', borderRadius: 10, cursor: 'pointer',
                 fontFamily: 'Poppins,sans-serif', fontSize: 14, fontWeight: 600
               }}>
